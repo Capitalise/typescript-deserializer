@@ -1,0 +1,11 @@
+{
+  "extends": ["tslint:recommended"],
+  "rules": {
+    "interface-name": false,
+    "space-before-function-paren": false,
+    "quotemark": [
+      true,
+      "single"
+    ]
+  }
+}

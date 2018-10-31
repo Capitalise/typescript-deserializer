@@ -1,0 +1,52 @@
+{
+  "name": "typescript-deserializer",
+  "version": "1.0.0",
+  "description": "A typescript powered deserializer library",
+  "types": "lib/index.d.ts",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "jest": "jest",
+    "tslint": "tslint -p tsconfig.json",
+    "test": "npm run tslint && npm run jest",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run test",
+    "preversion": "npm run test",
+    "postversion": "git push && git push --tags"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.9",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.4",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Capitalise/typescript-deserializer.git"
+  },
+  "keywords": [
+    "typescript",
+    "deserializer",
+    "deserialiser"
+  ],
+  "author": "Nelson Brandão <nelson.brandao@wearescytale.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Capitalise/typescript-deserializer/issues"
+  },
+  "homepage": "https://github.com/Capitalise/typescript-deserializer#readme",
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "testRegex": "^.+\\.spec\\.ts$"
+  },
+  "dependencies": {
+    "@loopback/metadata": "^1.0.0"
+  }
+}
