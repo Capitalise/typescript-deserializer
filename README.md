@@ -16,12 +16,12 @@ A typescript based JSON deserializer that permits converting raw Javascript/JSON
 
 ### Via yarn
 ```sh
-yarn install capitalise/typescript-deserializer
+yarn add typescript-deserializer
 ```
 
 ### Via npm
 ```sh
-npm install capitalise/typescript-deserializer
+npm install typescript-deserializer
 ```
 
 ## Usage
