@@ -1,6 +1,9 @@
 Typescript Deserializer
 ======================================
 
+
+[![npm](https://img.shields.io/npm/v/typescript-deserializer.svg)](https://www.npmjs.com/package/typescript-deserializer) ![David](https://img.shields.io/david/dev/capitalise/typescript-deserializer.svg) ![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/typescript-deserializer.svg)
+
 A typescript based JSON deserializer that permits converting raw Javascript/JSON Objects into typescript classes. Using decorators it becomes simple to define which class members should be deserialized and optionaly mapped into different values.
 
 ## Goals
