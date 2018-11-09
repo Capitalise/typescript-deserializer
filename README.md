@@ -129,6 +129,76 @@ instance.prop6;
 // → "Example Prop 6"
 ```
 
+### Deserialize function has static method
+```typescript
+import { JsonProperty, Deserializer } from 'typescript-deserializer';
+
+class ExampleClass {
+    @JsonProperty()
+    public prop6: string;
+
+    static deserialize (jsonObject: Object): ExampleClass {
+        return Deserializer.deserialize<ExampleClass>(ExampleClass, jsonObject);
+    }
+}
+
+const instance = ExampleClass.deserialize({ prop6: 'Example Prop 6' });
+instance.prop6;
+
+// → "Example Prop 6"
+```
+
+### Built in mapping functions
+```typescript
+import { JsonProperty, Deserializer } from 'typescript-deserializer';
+
+class ExampleClass {
+    @JsonProperty({
+        map: Deserializer.toDate,
+    })
+    public prop7: Date;
+
+    @JsonProperty({
+        map: Deserializer.parseInt,
+    })
+    public prop8: number;
+
+    @JsonProperty({
+        map: Deserializer.fromArray(OtherClass.deserialize),
+    })
+    public prop9: Array<OtherClass>;
+
+    static deserialize (jsonObject: Object): ExampleClass {
+        return Deserializer.deserialize<ExampleClass>(ExampleClass, jsonObject);
+    }
+}
+
+const instance = ExampleClass.deserialize({
+    prop7: '1995-12-17T03:24:00',
+    prop8: '123',
+    prop9: [
+        { (...) },
+        { (...) },
+        { (...) },
+    ],
+});
+
+instance.prop7;
+// → Sun Dec 17 1995 03:24:00 GMT...
+
+typeof instance.prop7;
+// → "Object" ~ Date
+
+instance.prop8;
+// → 123
+
+typeof instance.prop8;
+// → "number"
+
+instance.prop9;
+// → [ <OtherClass>, <OtherClass>, <OtherClass> ]
+```
+
 ## Building/Testing
 
 * Runs linter and tests with:
