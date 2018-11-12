@@ -75,6 +75,15 @@ export class Deserializer {
     }
 
     /**
+     * @name parseInt
+     * @description
+     * Wrapper around parseInt with a fixed radix
+     */
+    public static parseInt (str: string): number {
+        return parseInt(str, 10);
+    }
+
+    /**
      * @name fromArray
      * @description
      * Allows transforming every array element
@@ -90,27 +99,14 @@ export class Deserializer {
      */
     public static fromObject (func: (...args: any[]) => any) {
         return (object: JsonMap) => {
-            if (typeof object === 'undefined' || object === null) {
-                return object;
-            }
-
             return Object
-                .entries(object)
+                .entries(object || {})
                 .reduce((res: JsonMap, [ key, value ]) => {
                     res[key] = func(value);
 
                     return res;
                 }, {});
         };
-    }
-
-    /**
-     * @name parseInt
-     * @description
-     * Wrapper around parseInt with a fixed radix
-     */
-    public static parseInt (str: string): number {
-        return parseInt(str, 10);
     }
 
     private static assign<T> (

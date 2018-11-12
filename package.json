@@ -38,6 +38,17 @@
   },
   "homepage": "https://github.com/Capitalise/typescript-deserializer#readme",
   "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.ts",
+      "!**/*.spec.ts",
+      "!**/node_modules/**",
+      "!**/lib/**"
+    ],
+    "coverageDirectory": "./coverage",
+    "coverageReporters": [
+      "html"
+    ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
