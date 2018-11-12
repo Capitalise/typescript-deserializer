@@ -63,7 +63,7 @@ export class Deserializer {
      * Note: If the argument is a number it will assume its an timestamp.
      */
     public static toDate (input: string | number): Date {
-        if (typeof input === 'undefined' && input === null) {
+        if (typeof input === 'undefined' || input === null) {
             return input;
         }
 
